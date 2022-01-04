@@ -11,7 +11,7 @@ This study uses data from LSOA atlas downloaded from London Datastore (2014). Al
 
 The median house price data (`MedianHP`) was from Land Registry. The variable `kMedianHP` was it divided by 1000, and was used in this study as an alternative for the purpose of concise. Figure 1 shows its spatial distribution. In general, it reveals a double-hotspot pattern with exceptionally high median house prices in LSOAs in south *Barnet*, *Westminster* and *Kensington and Chelsea*. Median house prices are generally higher in the north London than in the south, and higher in the west than in the east.
 
-The socio-economic predictors chosen for this study are listed in **table 1**. After checking their correlations with the dependent variable (**table 1**), `c_per_hhlds` and `Pct_CHDC` were excluded from the predictors. The multicollinearity of the remaining predictors was then checked using VIF. A VIF smaller than 5 indicates the predictor is safe from multicollinearity (==citation on VIF==). **Table 2** shows VIFs for all of the selected factors. All variables had VIFs smaller than 5, suggesting that there was no multicollinearity.
+The socio-economic predictors chosen for this study are listed in **table 1**. After checking their correlations with the dependent variable (**table 1**), `c_per_hhlds` and `Pct_CHDC` were excluded from the predictors. The multicollinearity of the remaining predictors was then checked using VIF. A VIF smaller than 5 indicates the predictor is safe from multicollinearity (Akinwande *et al.*, 2015). **Table 2** shows VIFs for all of the selected factors. All variables had VIFs smaller than 5, suggesting that there was no multicollinearity.
 
 The socio-economic predictors used in this study include:
 
@@ -28,13 +28,13 @@ The socio-economic predictors used in this study include:
 
 A simple Ordinary Least Square (OLS) regression model was first developed with the listed predictors as its independent variables and the LSOA median house price as its dependent variable. The model results are presented in **table 4**. The global model has an adjusted R^2^ value of ==0.55== which means around 55% of the data can be explained by it.
 
-However, a global model does not address spatial non-stationarity,  which is the variation of the relation across space (==citation on spatial non-stationarity==). In order to capture the potential spatial variations, a two-step approach was carried out. The first step was checking spatial autocorrelation. This was achieved by testing the OLS residuals' global Moran's I, which is a (==citation on moran's I==). The global Moran's I of the OLS residuals was 0.402 (p value < 0.001) which indicated a spatial dependence. Figure 3 shows the distribution of the residuals, from which a clear spatial pattern can be observed.
+However, a global model does not address spatial non-stationarity,  which is the variation of the relation across space (Brunsdon *et al.*, 1996). In order to capture the potential spatial variations, a two-step approach was carried out. The first step was checking spatial autocorrelation. This was achieved by testing the OLS residuals' global Moran's I, which is a (Li *et al.*, 2007). The global Moran's I of the OLS residuals was 0.402 (p value < 0.001) which indicated a spatial dependence. Figure 3 shows the distribution of the residuals, from which a clear spatial pattern can be observed.
 
 <img src="D:\OneDrive - King's College London\Study\Year 3\6SSG3077 Applications of Spatial Data Science\Report\graph\fig3.png" style="zoom:36%;" />
 
 <center style="font-size:11px;color:#c0c0c0;font-family:sans-serif">Figure 3: Spatial distribution and global Moran's I of the OLS residuals</center>
 
-Since the existence of spatial autocorrelation, the global model was no longer effective in representing the relationship between the dependent variable and the predictors. As a result, the second step was establishing a local model, namely Geographically Weighted Regression (GWR) model. GWR is a local regression model that captures process's spatial heterogeneity (==citation on GWR==). GWR results contain estimated local parameters of each predictors for every regression point, which makes studying the relationships between different predictors and the dependent variable in different places much easier. 
+Since the existence of spatial autocorrelation, the global model was no longer effective in representing the relationship between the dependent variable and the predictors. As a result, the second step was establishing a local model, namely Geographically Weighted Regression (GWR) model. GWR is a local regression model that captures process's spatial heterogeneity (Brunsdon *et al.*, 1998). GWR results contain estimated local parameters of each predictors for every regression point, which makes studying the relationships between different predictors and the dependent variable in different places much easier. 
 
 Building a GWR model requires determining a kernel which defines the 'local'. In this case, an adaptive gaussian kernel was selected. A gaussian kernel was used because the data is  continuous across space, so it makes more sense to give closer data point higher weight.
 
@@ -52,7 +52,7 @@ All of the data analysis procedures were accomplished by Python. Detailed proces
 
 Two proxies were adopted here - AICc and adjusted R^2^. Adjusted R^2^ indicates the proportion of the variation in the dependent variable that can be explained by the model. Higher R^2^ means more of the dependent variable can be predicted from the independent variables, thus higher performance of the model. The OLS model's adjusted R^2^  is lower than that of the GWR model, which suggests a higher performance of the latter.
 
-AICc reflects how well a model fits the data while also penalises models with more predictors (==citation on AICc==). Lower AICc generally means better model performance. AICc of the GWR model is smaller than that of the OLS model.
+AICc reflects how well a model fits the data while also penalises models with more predictors (Cavanaugh, 1997; Akaike, 1998). Lower AICc generally means better model performance. AICc of the GWR model is smaller than that of the OLS model.
 
 As mentioned previously, the residuals of the OLS model showed strong spatial dependence (global Moran's I = 0.402, p <0.001). The GWR's residuals, on the other hand, showed almost no spatial autocorrelation (figure 4).
 
