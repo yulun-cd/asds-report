@@ -72,11 +72,11 @@ The median annual household income data has a very similar spatial distribution 
 
 <center style="font-size:11px;color:#c0c0c0;font-family:sans-serif">Figure 5: statistically significant (95%) GWR estimates for median annual household income</center>
 
-The GWR model parameter estimates for the median annual household income show a clear spatial variation in the relation, as shown in figure 5. Almost all LSOAs in London detects a positive effect. The size of this effect is between 1.98 to 7.79 in most areas, which means a one unit increase in median income is related to a 1.98 to 7.79 units increase in median house price. In some areas (mainly southwest to north London) the estimated effect size increases to higher ranges. *Westminster*, *Kensington and Chelsea* and southern part of *Barnet* have the highest parameter estimates (above 37), which coincides with the areas with the highest median house prices and median annual household incomes. Other parameter estimates ranges are also roughly consistent with the corresponding median house price data and median income data ranges. This explains the extraordinarily high median house prices in these areas. Average house price level (`kMedianHP` as an indicator) will rise more quickly with average income level (`MedianIncome` as an indicator) in places where the income level is already higher compared to others.
+The GWR model parameter estimates for the median annual household income show a clear spatial variation in the relation, as shown in figure 5. Almost all LSOAs in London detects a positive effect. The size of this effect is between 1.98 to 7.79 in most areas, which means a one unit increase in median income is related to a 1.98 to 7.79 units increase in median house price. In some areas (mainly southwest to north London) the estimated effect size increases to higher ranges. *Westminster*, *Kensington and Chelsea* and southern part of *Barnet* have the highest parameter estimates (above 37 and up to 52.17), which coincides with the areas with the highest median house prices and median annual household incomes. Other parameter estimates ranges are also roughly consistent with the corresponding median house price data and median income data ranges. This explains the extraordinarily high median house prices in these areas. Average house price level (`kMedianHP` as an indicator) will rise more quickly with average income level (`MedianIncome` as an indicator) in places where the income level is already higher compared to others.
 
 #### Percentage of non-white population
 
-Figure 6 shows the spatial pattern of the GWR estimates for percentage of non-white population. 
+Ethnicity is a huge factor in mortgage lending (Haughwout *et al.*, 2009; Bocian *et al.*, 2008), especially in high-risk mortgage (Bayer *et al.*, 2018). Figure 6 shows the spatial pattern of the GWR estimates for percentage of non-white population. 
 
 <img src="D:\OneDrive - King's College London\Study\Year 3\6SSG3077 Applications of Spatial Data Science\Report\graph\fig6.png" style="zoom:36%;" />
 
@@ -86,13 +86,23 @@ The estimates have very huge spatial variations across London. On one hand, the 
 
 On the other hand, there are places in London where the parameter estimates are positive. Such places are mainly in Outer London, including areas in the north (*Enfield*, *Barnet*, *Haringey* and *Camden*), the southwest (from north *Kingston* and *Merton* all the way to south *Croydon*), the northwest and southeast ends and some parts in east London. Several areas in Inner London also detect positive relations, including a small area in *Hammersmith and Fulham* and southern part of *Southwark*. The effect size in most areas is between 0 to 3.65, while some areas in north and southwest London have an effect size up to 7.35.
 
+The reasons behind the spatial heterogeneity of the percentage of non-whites in relation to median house price need to be further investigated, but the presence of it indicates that the percentage of non-white population might not be the determining factor, but it has influence on the house price, and there are likely to be other variables closely associated with it that have huge impact on the dependent variable.
+
 #### Average Public Transport Accessibility Level
+
+Public transport links an area with others. It is a very important dimension in social connectivity and allows people, especially those without private vehicles, to participate in activities that are not in their areas (Fransen *et al.*, 2015). The spatial distribution of GWR parameter estimates for average PTAL is shown in figure 7. Most significant estimates are positive, which mainly spread along the Thames, from *Richmond* and *Hounslow* in the west to *Greenwich* and *Newham* in the east, covering most areas in Inner London. They also extend further north to eastern part of *Ealing*, *Brent* and southern part of *Barnet*. The effect size rises gradually from the border in this area, reaching 6.55 to 10.4 in the centre parts, including *the City of London*, *H&F*, most parts of *K&C*, and a small area in south *Barnet*. What's worth mentioning is that most parts of *Westminster* and *Camden* are excluded from this area. In fact, a small area of the latter, together with a part of *Enfield*, have has negative parameter estimates ranging from -2.69 to -1.95.
+
+Although very strong estimated relations in some areas, the parameter estimates in the majority parts of London are not statistically significant. This suggests that the average PTAL is only a great estimator in certain parts and beyond that it cannot be considered as an indicator for house price.
 
 <img src="D:\OneDrive - King's College London\Study\Year 3\6SSG3077 Applications of Spatial Data Science\Report\graph\fig7.png" style="zoom:36%;" />
 
 <center style="font-size:11px;color:#c0c0c0;font-family:sans-serif">Figure 7: statistically significant (95%) GWR estimates for average PTAL</center>
 
 #### Percentage of level 4 and above highest qualification
+
+Figure 8 shows the variations of the percentage of level 4 and above highest qualification in relation to the median house price. It is a negative estimator in all significant areas, with an effect size between -24.62 and -16.6 in river bank areas in *H&F*, *Wandsworth*, *K&C* and *Westminster* along the Thames, as well as in neighbouring areas between *Camden*, *Haringey* and *Barnet*. This means that a one unit increase in `Pct_qual_above_l4` is associated with a 16.6 to 24.62 units drop in median house price.
+
+However, such negative relation is quite localised. The effect size drops quickly to close to zero (-4.61 to -1.96) or becomes insignificant in areas like *the City of London*, *Islington*, *Harrow*, *Brent*, *Hounslow* and most boroughs south of the Thames.
 
 <img src="D:\OneDrive - King's College London\Study\Year 3\6SSG3077 Applications of Spatial Data Science\Report\graph\fig8.png" style="zoom:36%;" />
 
